@@ -4,7 +4,9 @@ import "bulma/css/bulma.css";
 import foods from "./foods.json";
 import FoodBox from "./components/FoodBox.js";
 import AddNewFood from "./components/AddNewFood.js";
+import Search from "./components/Search.js";
 import "./App.css";
+
 
 class App extends React.Component {
   constructor(props) {
@@ -29,6 +31,11 @@ class App extends React.Component {
     });
   };
 
+  // showDynamicList = foods => {
+  //   const foodsCopy = [...this.state.foods];
+  //   this.state.foods.name
+  // }
+
   // {...food} = spread operator. Permet de récupérer toutes les propriétés d'un objet
 
   render() {
@@ -43,10 +50,15 @@ class App extends React.Component {
           />
         )}
 
+        <Search/>
+
         {/* Affiche la liste des foodbox */}
         {this.state.foods.map((food, index) => {
           return <FoodBox key={index} {...food} />;
         })}
+
+        {/* Affiche les suggestions de foodbox  */}
+        
       </div>
     );
   }
